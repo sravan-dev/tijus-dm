@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>360° Digital Marketing with AI & Automation | Tiju's Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1D3A;
+    --navy-mid: #122A52;
+    --gold: #F5A500;
+    --gold-light: #FFD166;
+    --gold-pale: #FFF3CC;
+    --white: #FFFFFF;
+    --off-white: #F7F8FC;
+    --text: #1A2340;
+    --muted: #5A6A88;
+    --border: #D6DFF0;
+    --green: #0FA86A;
+    --red: #E03030;
+    --accent-blue: #1E5EF3;
+    --card-shadow: 0 4px 24px rgba(11,29,58,0.10);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+
+  /* ---- UTILITY ---- */
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 80px 0; }
+  .section-alt { background: var(--off-white); }
+  .section-dark { background: var(--navy); }
+  .tag { display: inline-block; background: var(--gold-pale); color: var(--navy); font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--gold-light); }
+  .tag-white { background: rgba(255,255,255,0.12); color: var(--gold-light); border-color: rgba(255,255,255,0.2); }
+  .section-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: var(--navy); line-height: 1.15; }
+  .section-title-white { color: var(--white); }
+  .section-sub { color: var(--muted); font-size: 17px; margin-top: 12px; max-width: 580px; }
+
+  /* ---- NAVBAR ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(11,29,58,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(245,165,0,0.18);
+    padding: 0 24px;
+  }
+  .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo img { height: 38px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.78); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta { background: var(--gold); color: var(--navy); font-family: var(--font-display); font-weight: 700; font-size: 14px; padding: 10px 22px; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 68px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(245,165,0,0.10) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 10% 80%, rgba(30,94,243,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 440px; gap: 64px; align-items: center;
+    max-width: 1140px; margin: 0 auto; padding: 80px 24px;
+    width: 100%;
+  }
+  .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(245,165,0,0.15); border: 1px solid rgba(245,165,0,0.35); color: var(--gold-light); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 20px; }
+  .hero-h1 { font-family: var(--font-display); font-size: clamp(38px, 5.5vw, 60px); font-weight: 800; color: var(--white); line-height: 1.07; }
+  .hero-h1 span { color: var(--gold); }
+  .hero-sub { color: rgba(255,255,255,0.65); font-size: 18px; margin-top: 18px; max-width: 520px; }
+  .hero-stats { display: flex; gap: 28px; margin-top: 36px; flex-wrap: wrap; }
+  .hero-stat { display: flex; flex-direction: column; }
+  .hero-stat strong { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--gold-light); }
+  .hero-stat span { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.07em; }
+  .hero-btns { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); font-family: var(--font-display); font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 10px; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,165,0,0.35); }
+  .btn-outline { background: transparent; color: var(--white); font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 13px 26px; border-radius: 10px; text-decoration: none; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  /* Hero Form Card */
+  .hero-form-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    position: relative;
+  }
+  .form-free-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-family: var(--font-display); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
+  .form-title { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--navy); }
+  .form-sub { font-size: 13px; color: var(--muted); margin-top: 4px; margin-bottom: 22px; }
+  .form-group { margin-bottom: 14px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: var(--font-body); font-size: 14px; color: var(--text);
+    background: var(--white); transition: border-color 0.2s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--gold); }
+  .form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A6A88' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .phone-row { display: grid; grid-template-columns: 90px 1fr; gap: 8px; }
+  .form-btn { width: 100%; background: var(--navy); color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 15px; padding: 14px; border-radius: 10px; border: none; cursor: pointer; transition: all 0.2s; margin-top: 6px; }
+  .form-btn:hover { background: var(--accent-blue); transform: translateY(-1px); }
+  .form-disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+  /* ---- TRUST BAR ---- */
+  .trust-bar { background: var(--gold); padding: 14px 0; }
+  .trust-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--navy); white-space: nowrap; }
+  .trust-dot { width: 6px; height: 6px; background: rgba(11,29,58,0.3); border-radius: 50%; }
+
+  /* ---- FEATURES GRID ---- */
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+  .feature-card {
+    background: var(--white); border: 1.5px solid var(--border); border-radius: 16px;
+    padding: 28px 24px; transition: all 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); opacity: 0; transition: opacity 0.25s; }
+  .feature-card:hover { border-color: var(--gold-light); box-shadow: var(--card-shadow); transform: translateY(-3px); }
+  .feature-card:hover::before { opacity: 1; }
+  .feature-icon { font-size: 28px; margin-bottom: 14px; }
+  .feature-card h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ---- PRICING ---- */
+  .pricing-main-card {
+    background: var(--navy); border-radius: 20px; padding: 40px;
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+    margin-bottom: 32px; position: relative; overflow: hidden;
+  }
+  .pricing-main-card::after {
+    content: ''; position: absolute; right: -60px; top: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(245,165,0,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .main-course-tag { display: inline-block; background: var(--gold); color: var(--navy); font-family: var(--font-display); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; }
+  .main-course-name { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--white); line-height: 1.2; }
+  .main-course-sub { color: rgba(255,255,255,0.55); font-size: 14px; margin-top: 8px; }
+  .main-price-box { text-align: right; position: relative; z-index: 2; }
+  .price-was { font-size: 14px; color: rgba(255,255,255,0.4); text-decoration: line-through; margin-bottom: 4px; }
+  .price-now { font-family: var(--font-display); font-size: 46px; font-weight: 800; color: var(--gold); line-height: 1; }
+  .price-gst { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+  .price-save { display: inline-block; background: rgba(15,168,106,0.2); border: 1px solid rgba(15,168,106,0.4); color: #4ADE80; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-top: 8px; }
+
+  /* Sub-courses */
+  .sub-courses-header {
+    display: grid; grid-template-columns: 1fr 120px 120px 140px;
+    gap: 12px; padding: 12px 20px; background: var(--navy-mid);
+    border-radius: 10px 10px 0 0; margin-bottom: 0;
+    font-family: var(--font-display); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.6);
+  }
+  .sub-course-row {
+    display: grid; grid-template-columns: 1fr 120px 120px 140px;
+    gap: 12px; padding: 16px 20px; align-items: center;
+    border-bottom: 1px solid var(--border); background: var(--white);
+    transition: background 0.18s;
+  }
+  .sub-course-row:last-child { border-bottom: none; border-radius: 0 0 12px 12px; }
+  .sub-course-row:hover { background: var(--off-white); }
+  .sub-course-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--navy); color: var(--white); font-family: var(--font-display); font-size: 11px; font-weight: 700; border-radius: 50%; margin-right: 10px; flex-shrink: 0; }
+  .sub-course-name { display: flex; align-items: center; font-size: 14px; font-weight: 500; color: var(--text); }
+  .sub-price-was { font-size: 13px; color: var(--muted); text-decoration: line-through; text-align: center; }
+  .sub-price-now { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--green); text-align: center; }
+  .sub-price-gst { font-size: 13px; color: var(--muted); text-align: center; }
+  .sub-courses-wrap { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+
+  /* ---- MODULES ---- */
+  .modules-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+  .mod-tab {
+    padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;
+    border: 1.5px solid var(--border); color: var(--muted); background: var(--white);
+    transition: all 0.18s; font-family: var(--font-display);
+  }
+  .mod-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .mod-tab:hover:not(.active) { border-color: var(--gold); color: var(--navy); }
+
+  .module-panel { display: none; }
+  .module-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .mod-header { margin-bottom: 20px; }
+  .mod-number { font-family: var(--font-display); font-size: 60px; font-weight: 800; color: rgba(245,165,0,0.15); line-height: 1; margin-bottom: -10px; }
+  .mod-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .mod-meta { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+  .mod-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--muted); }
+  .mod-tagline { font-size: 15px; color: var(--accent-blue); font-weight: 500; margin: 16px 0 20px; border-left: 3px solid var(--gold); padding-left: 14px; }
+  .mod-points { list-style: none; }
+  .mod-points li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); padding: 7px 0; border-bottom: 1px solid var(--off-white); }
+  .mod-points li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .mod-outcome { background: linear-gradient(135deg, #E8F5EF, #F0FAF4); border: 1.5px solid rgba(15,168,106,0.25); border-radius: 12px; padding: 18px 20px; margin-top: 20px; }
+  .mod-outcome-label { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .mod-outcome p { font-size: 14px; color: var(--text); font-weight: 500; }
+  .mod-price-card { background: var(--navy); border-radius: 16px; padding: 28px; text-align: center; }
+  .mod-price-card h4 { font-family: var(--font-display); font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 600; margin-bottom: 8px; }
+  .mod-price-big { font-family: var(--font-display); font-size: 42px; font-weight: 800; color: var(--gold); }
+  .mod-price-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+  .mod-enroll-btn { display: block; background: var(--gold); color: var(--navy); font-family: var(--font-display); font-weight: 700; font-size: 14px; padding: 13px; border-radius: 10px; text-decoration: none; margin-top: 18px; transition: all 0.2s; text-align: center; }
+  .mod-enroll-btn:hover { background: var(--gold-light); }
+  .mod-tools { margin-top: 20px; }
+  .mod-tools h5 { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+  .tool-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool-chip { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); }
+
+  /* ---- WHY JOIN ---- */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .why-card { background: var(--white); border-radius: 16px; padding: 28px 22px; border: 1.5px solid var(--border); }
+  .why-icon { font-size: 32px; margin-bottom: 14px; }
+  .why-card h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .why-card p { font-size: 14px; color: var(--muted); }
+
+  /* ---- IDEAL FOR ---- */
+  .ideal-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+  .ideal-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1.5px solid var(--border); color: var(--text); font-size: 14px; font-weight: 500; padding: 10px 18px; border-radius: 40px; transition: all 0.18s; }
+  .ideal-chip:hover { border-color: var(--gold); color: var(--navy); background: var(--gold-pale); }
+  .ideal-chip span { font-size: 18px; }
+
+  /* ---- TOOLS ---- */
+  .tools-group { margin-top: 40px; }
+  .tools-group-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .tools-list { display: flex; gap: 12px; flex-wrap: wrap; }
+  .tool-item { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: all 0.18s; }
+  .tool-item:hover { background: rgba(245,165,0,0.12); border-color: rgba(245,165,0,0.3); color: var(--gold-light); }
+  .tool-icon { font-size: 16px; }
+
+  /* ---- ADMISSION ---- */
+  .admission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+  .admission-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 28px 24px; text-align: center; }
+  .admission-icon { font-size: 32px; margin-bottom: 12px; }
+  .admission-card h4 { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .admission-card p { font-size: 16px; font-weight: 600; color: var(--white); }
+  .admission-card small { font-size: 13px; color: rgba(255,255,255,0.45); display: block; margin-top: 4px; }
+  .admission-ctas { display: flex; justify-content: center; gap: 16px; margin-top: 48px; flex-wrap: wrap; }
+
+  /* ---- FAQ ---- */
+  .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--white); }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; cursor: pointer; gap: 16px; }
+  .faq-q span { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--navy); }
+  .faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--off-white); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; color: var(--muted); transition: all 0.2s; }
+  .faq-item.open .faq-icon { background: var(--navy); color: var(--gold-light); border-color: var(--navy); transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s; }
+  .faq-item.open .faq-a { max-height: 200px; }
+  .faq-a-inner { padding: 0 22px 18px; font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ---- FOOTER ---- */
+  footer { background: #060F1F; padding: 48px 0 24px; }
+  .footer-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand img { height: 36px; margin-bottom: 14px; }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 340px; }
+  .footer-contact h4 { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .footer-contact p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.9; }
+  .footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+  /* ---- STICKY CTA BAR ---- */
+  .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: rgba(11,29,58,0.97); backdrop-filter: blur(10px); border-top: 1px solid rgba(245,165,0,0.2); padding: 12px 24px; display: none; }
+  .sticky-bar-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .sticky-bar-text { color: var(--white); font-size: 15px; font-weight: 500; }
+  .sticky-bar-text strong { color: var(--gold); font-family: var(--font-display); font-weight: 700; }
+  .sticky-bar-btns { display: flex; gap: 10px; flex-shrink: 0; }
+
+  /* WA Float */
+  .wa-float { position: fixed; bottom: 76px; right: 24px; z-index: 998; width: 52px; height: 52px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s; }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+  .delay-4 { animation-delay: 0.5s; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+    .hero-form-card { max-width: 460px; }
+    .features-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+    .module-panel.active { grid-template-columns: 1fr; }
+    .admission-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .sub-courses-header, .sub-course-row { grid-template-columns: 1fr 90px 90px 110px; font-size: 13px; }
+    .pricing-main-card { grid-template-columns: 1fr; gap: 24px; }
+    .main-price-box { text-align: left; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .features-grid, .why-grid { grid-template-columns: 1fr; }
+    .admission-grid { grid-template-columns: 1fr; }
+    .sub-courses-header { display: none; }
+    .sub-course-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
+    .sub-price-was, .sub-price-now, .sub-price-gst { text-align: left; }
+    .hero-stats { gap: 20px; }
+    .trust-inner { gap: 16px; }
+    .trust-dot { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="https://tijusacademy.com/wp-content/uploads/2024/09/xNew-logo-PNG-1024x594.png.pagespeed.ic.HNMsGtlSct.png" alt="Tiju's Academy">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#courses">Curriculum</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#hero-form" class="nav-cta">Apply Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-up">
+        <span class="hero-badge">🎓 Kerala's #1 Digital Marketing Institute</span>
+      </div>
+      <h1 class="hero-h1 fade-up delay-1">
+        360° Digital Marketing<br><span>with AI & Automation</span>
+      </h1>
+      <p class="hero-sub fade-up delay-2">Master the <strong style="color:rgba(255,255,255,0.9)">"Human + AI"</strong> framework. 7 live modules, 20+ tools, real campaigns — from Kerala's most trusted academy.</p>
+      <div class="hero-stats fade-up delay-3">
+        <div class="hero-stat"><strong>500+</strong><span>Students Trained</span></div>
+        <div class="hero-stat"><strong>20+</strong><span>AI Tools</span></div>
+        <div class="hero-stat"><strong>5 Months</strong><span>Live Program</span></div>
+        <div class="hero-stat"><strong>7</strong><span>Modules</span></div>
+      </div>
+      <div class="hero-btns fade-up delay-4">
+        <a href="#hero-form" class="btn-primary">Book a Free Expert Call →</a>
+        <a href="#pricing" class="btn-outline">View Pricing</a>
+      </div>
+    </div>
+    <div class="hero-form-card fade-up delay-2" id="hero-form">
+      <div class="form-free-tag">⚡ FREE CONSULTATION</div>
+      <h3 class="form-title">Talk to a DM Expert</h3>
+      <p class="form-sub">Get clarity on skills, certification & job paths</p>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <div class="phone-row">
+          <select><option>🇮🇳 +91</option><option>🇦🇪 +971</option><option>🇬🇧 +44</option><option>🇸🇦 +966</option></select>
+          <input type="tel" placeholder="Phone number">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+      <div class="form-group">
+        <label>I am a</label>
+        <select>
+          <option>Student</option>
+          <option>Graduate</option>
+          <option>Professional</option>
+          <option>Entrepreneur</option>
+        </select>
+      </div>
+      <button class="form-btn">Book Now — It's Free</button>
+      <p class="form-disclaimer">By submitting, you agree to our Terms & Privacy Policy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">🏆 Best DM Institute in Kerala</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">📍 Mavelikara & Thiruvalla</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">🌐 Online & Offline Batches</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">💼 Placement Support</div>
+    <div class="trust-dot"></div>
+    <div class="trust-item">📅 Admission Closes 06 Apr 2026</div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<section class="section section-alt" id="curriculum">
+  <div class="container">
+    <div class="section-label">The Program</div>
+    <h2 class="section-title">Everything You Need to Become a<br>High-Earning Digital Marketer</h2>
+    <p class="section-sub">A curriculum built for 2026 — combining foundational strategy with cutting-edge AI tools and automation systems.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">📚</div><h3>Strong Fundamentals</h3><p>Core marketing and business concepts that make every AI tool more powerful in your hands.</p></div>
+      <div class="feature-card"><div class="feature-icon">🤖</div><h3>AI-Powered Curriculum</h3><p>Master the 3As of Marketing — Analytics, AI & Automation — with 20+ dedicated tools.</p></div>
+      <div class="feature-card"><div class="feature-icon">🛠</div><h3>100% Hands-On Learning</h3><p>Real campaigns, live projects, and actual case studies. Not slides — execution.</p></div>
+      <div class="feature-card"><div class="feature-icon">💼</div><h3>AI-First Job Readiness</h3><p>Build a strong portfolio with live projects that impress recruiters and clients alike.</p></div>
+      <div class="feature-card"><div class="feature-icon">🌐</div><h3>Flexible Learning</h3><p>Choose Online or Offline batches. Live sessions that fit your schedule.</p></div>
+      <div class="feature-card"><div class="feature-icon">📱</div><h3>Multi-Platform Mastery</h3><p>Expertise across Meta, Google, LinkedIn, Snapchat, and emerging AI platforms.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Transparent, Value-First Pricing</h2>
+    <p class="section-sub">Enrol in the full 360° program or pick individual modules based on your goals.</p>
+
+    <!-- Main Course -->
+    <div style="margin-top:48px;">
+      <div class="pricing-main-card">
+        <div>
+          <div class="main-course-tag">FULL PROGRAM — BEST VALUE</div>
+          <div class="main-course-name">360° Digital Marketing<br>with AI & Automation</div>
+          <div class="main-course-sub">All 7 modules · 5 months · Live Online & Offline · Placement Support</div>
+          <div class="price-save" style="margin-top:16px; font-size:13px;">✅ Save ₹36,994 vs buying all 7 modules individually</div>
+        </div>
+        <div class="main-price-box">
+          <div class="price-was">Regular Price: ₹35,000</div>
+          <div class="price-now">₹32,999</div>
+          <div class="price-gst">+ 18% GST = ₹38,939</div>
+          <a href="#hero-form" class="btn-primary" style="margin-top:16px; display:inline-flex;">Enrol Now →</a>
+        </div>
+      </div>
+
+      <!-- Sub Courses -->
+      <div class="sub-courses-header">
+        <div>Module Name</div>
+        <div style="text-align:center">Regular</div>
+        <div style="text-align:center">Offer Price</div>
+        <div style="text-align:center">With 18% GST</div>
+      </div>
+      <div class="sub-courses-wrap">
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">1</span>Meta Ads Mastery with WhatsApp Sales Funnels</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">2</span>Advanced SEO, AEO & AI Search Optimisation</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">3</span>Content Marketing & Personal Branding</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">4</span>Marketing Automation: CRM, Email & WhatsApp</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">5</span>Full-Funnel Performance Marketing</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">6</span>Google Ads Pro: Leads, Sales & AI Scaling</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+        <div class="sub-course-row">
+          <div class="sub-course-name"><span class="sub-course-num">7</span>Social Media Perf. Marketing: Meta + LinkedIn</div>
+          <div class="sub-price-was">₹9,999</div>
+          <div class="sub-price-now">₹6,999</div>
+          <div class="sub-price-gst">₹8,259</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="section section-alt" id="courses">
+  <div class="container">
+    <div class="section-label">7 Modules</div>
+    <h2 class="section-title">Curriculum Deep Dive</h2>
+    <p class="section-sub">Each module is a complete skill package — taught live with real projects and tools.</p>
+
+    <div class="modules-tabs" style="margin-top:36px;">
+      <div class="mod-tab active" onclick="openModule(1,this)">Module 01</div>
+      <div class="mod-tab" onclick="openModule(2,this)">Module 02</div>
+      <div class="mod-tab" onclick="openModule(3,this)">Module 03</div>
+      <div class="mod-tab" onclick="openModule(4,this)">Module 04</div>
+      <div class="mod-tab" onclick="openModule(5,this)">Module 05</div>
+      <div class="mod-tab" onclick="openModule(6,this)">Module 06</div>
+      <div class="mod-tab" onclick="openModule(7,this)">Module 07</div>
+    </div>
+
+    <div id="mod-1" class="module-panel active">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">01</div>
+          <div class="mod-title">Meta Ads Mastery with WhatsApp Sales Funnels</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 10 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Become a performance marketer using Meta's latest AI system (Andromeda)</div>
+        <ul class="mod-points">
+          <li>Run high-converting ad campaigns on Facebook & Instagram</li>
+          <li>Master audience targeting, creatives & campaign scaling</li>
+          <li>Understand algorithm-driven advertising with Andromeda AI</li>
+          <li>Build complete ad funnels & ROI tracking systems</li>
+          <li>Optimise sales with WhatsApp Business and basic CRM</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Launch & scale profitable Meta Ads campaigns with AI-driven efficiency</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">Meta Ads Manager</span>
+              <span class="tool-chip">WhatsApp Business</span>
+              <span class="tool-chip">ManyChat</span>
+              <span class="tool-chip">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mod-2" class="module-panel">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">02</div>
+          <div class="mod-title">Advanced SEO, AEO & AI Search Optimisation</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 10 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Rank on Google and get cited by AI systems like ChatGPT and Gemini</div>
+        <ul class="mod-points">
+          <li>Learn classic SEO + AI Search Optimisation (AEO)</li>
+          <li>Build Topical Authority & E-E-A-T signals</li>
+          <li>Optimise for AI-driven search engines and answer boxes</li>
+          <li>Drive consistent free traffic and long-term organic growth</li>
+          <li>Keyword research, on-page & technical SEO mastery</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Get ranked, cited & recommended by both Google and AI search systems</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">Semrush</span>
+              <span class="tool-chip">Google Search Console</span>
+              <span class="tool-chip">ChatGPT</span>
+              <span class="tool-chip">SEO SiteCheckup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mod-3" class="module-panel">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">03</div>
+          <div class="mod-title">Content Marketing & Personal Branding</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 10 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Create content that attracts, engages & converts customers</div>
+        <ul class="mod-points">
+          <li>Content strategy aligned with business goals</li>
+          <li>Copywriting frameworks that drive action (AIDA, PAS & more)</li>
+          <li>SEO-driven content creation with AI assistance</li>
+          <li>Content funnels & lead generation systems</li>
+          <li>Build a powerful personal brand on LinkedIn & social media</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Turn content into a consistent stream of traffic, leads & sales</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">Jasper</span>
+              <span class="tool-chip">Writesonic</span>
+              <span class="tool-chip">Canva</span>
+              <span class="tool-chip">Claude</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mod-4" class="module-panel">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">04</div>
+          <div class="mod-title">Marketing Automation: CRM, Email & WhatsApp</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 10 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Master CRM, automation & inbound marketing at scale</div>
+        <ul class="mod-points">
+          <li>CRM setup, lead management & pipeline building</li>
+          <li>Email automation, drip workflows & personalisation</li>
+          <li>WhatsApp Business automation for lead nurturing</li>
+          <li>Sales & marketing alignment strategies</li>
+          <li>Analytics & performance tracking dashboards</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Build automated marketing & sales systems that work 24/7 without manual effort</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">HubSpot</span>
+              <span class="tool-chip">Mailchimp</span>
+              <span class="tool-chip">n8n</span>
+              <span class="tool-chip">Keap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mod-5" class="module-panel">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">05</div>
+          <div class="mod-title">Full-Funnel Performance Marketing</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 10 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Become a data-driven marketer focused on real ROI</div>
+        <ul class="mod-points">
+          <li>Full-funnel marketing strategy from awareness to conversion</li>
+          <li>Multi-channel campaign planning & execution</li>
+          <li>Conversion tracking & attribution modelling</li>
+          <li>Scaling campaigns profitably with data insights</li>
+          <li>A/B testing, landing page optimisation & CRO basics</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Manage campaigns focused on revenue and ROAS — not vanity metrics</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">Google Analytics 4</span>
+              <span class="tool-chip">Meta Pixel</span>
+              <span class="tool-chip">Hotjar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mod-6" class="module-panel">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">06</div>
+          <div class="mod-title">Google Ads Pro: Leads, Sales & AI Scaling</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 12–13 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Run profitable paid campaigns on Google with AI-powered optimisation</div>
+        <ul class="mod-points">
+          <li>Search, Display, Shopping & Performance Max campaigns</li>
+          <li>Keyword strategy + smart bidding optimisation</li>
+          <li>High-converting ad copywriting & extensions</li>
+          <li>Landing page & conversion rate optimisation</li>
+          <li>AI-powered scaling for maximum ROAS</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Generate high-quality leads & sales instantly through Google Ads</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">Google Ads</span>
+              <span class="tool-chip">Google Analytics 4</span>
+              <span class="tool-chip">Search Console</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mod-7" class="module-panel">
+      <div>
+        <div class="mod-header">
+          <div class="mod-number">07</div>
+          <div class="mod-title">Social Media Perf. Marketing: Meta + LinkedIn</div>
+          <div class="mod-meta"><span class="mod-badge">⏱ 13–15 Hours</span><span class="mod-badge">📍 Live + Recorded</span></div>
+        </div>
+        <div class="mod-tagline">Run high-performing campaigns across Meta and LinkedIn</div>
+        <ul class="mod-points">
+          <li>Run ads on Meta (Facebook & Instagram) and LinkedIn</li>
+          <li>Understand platform-specific targeting & audience behaviour</li>
+          <li>Create high-converting ad creatives for each platform</li>
+          <li>Use AI tools for content ideation & optimisation</li>
+          <li>Compare performance using real analytics & reporting</li>
+        </ul>
+        <div class="mod-outcome"><div class="mod-outcome-label">✅ Outcome</div><p>Build a multi-platform social media advertising engine that drives leads & brand growth</p></div>
+      </div>
+      <div>
+        <div class="mod-price-card">
+          <h4>Individual Module Price</h4>
+          <div class="mod-price-big">₹6,999</div>
+          <div class="mod-price-sub">+ 18% GST = ₹8,259 &nbsp;|&nbsp; Reg. ₹9,999</div>
+          <a href="#hero-form" class="mod-enroll-btn">Enrol in This Module →</a>
+          <div class="mod-tools">
+            <h5>Tools Covered</h5>
+            <div class="tool-chips">
+              <span class="tool-chip">Meta Ads Manager</span>
+              <span class="tool-chip">LinkedIn Campaign Manager</span>
+              <span class="tool-chip">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOIN -->
+<section class="section" id="why">
+  <div class="container">
+    <div class="section-label">Why Tiju's Academy</div>
+    <h2 class="section-title">Skills That Actually Drive Results</h2>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🏆</div><h3>Tiju's Learning Excellence</h3><p>A premier Kerala institute with industry-experienced, certified trainers and a track record of 500+ trained marketers.</p></div>
+      <div class="why-card"><div class="why-icon">🛠</div><h3>100% Practical Learning</h3><p>Every module is built around real campaigns, live tools, and hands-on exercises. No theory-only slides.</p></div>
+      <div class="why-card"><div class="why-icon">🤖</div><h3>AI-Ready & Multi-Platform</h3><p>Master AI-ready marketing skills with expertise across Meta, Google, LinkedIn, and beyond.</p></div>
+      <div class="why-card"><div class="why-icon">💼</div><h3>Job + Business Focused</h3><p>Designed for both career growth and direct lead generation for entrepreneurs and business owners.</p></div>
+      <div class="why-card"><div class="why-icon">📈</div><h3>Placement Support</h3><p>Our dedicated career cell connects graduates with top hiring companies in Kerala and the GCC.</p></div>
+      <div class="why-card"><div class="why-icon">🌍</div><h3>Global-Ready Curriculum</h3><p>Targeting Malayali audiences in Kerala, GCC, UK & Ireland — the curriculum reflects real-world market needs.</p></div>
+    </div>
+
+    <div style="margin-top:56px;">
+      <div class="section-label">Ideal For</div>
+      <h2 class="section-title">Who Should Join?</h2>
+      <div class="ideal-chips">
+        <div class="ideal-chip"><span>🎓</span> Aspiring Digital Marketers</div>
+        <div class="ideal-chip"><span>📊</span> Marketing Professionals</div>
+        <div class="ideal-chip"><span>🚀</span> Entrepreneurs</div>
+        <div class="ideal-chip"><span>✍️</span> Content Creators</div>
+        <div class="ideal-chip"><span>📱</span> Social Media Enthusiasts</div>
+        <div class="ideal-chip"><span>👨‍🎓</span> Students</div>
+        <div class="ideal-chip"><span>💻</span> Freelancers</div>
+        <div class="ideal-chip"><span>🔄</span> Career Changers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section section-dark" id="tools">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">The Tech Stack</div>
+    <h2 class="section-title section-title-white">20+ Tools Covered —<br>Master the Full Marketing Stack</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.5)">You won't just learn tools — you'll build workflows that combine them.</p>
+    <div class="tools-group">
+      <div class="tools-group-title">🔍 Search & Analytics</div>
+      <div class="tools-list">
+        <div class="tool-item"><span class="tool-icon">📊</span> Google Ads</div>
+        <div class="tool-item"><span class="tool-icon">📈</span> Google Analytics 4</div>
+        <div class="tool-item"><span class="tool-icon">🔎</span> Google Search Console</div>
+        <div class="tool-item"><span class="tool-icon">🧰</span> Semrush</div>
+        <div class="tool-item"><span class="tool-icon">✅</span> SEO SiteCheckup</div>
+      </div>
+    </div>
+    <div class="tools-group" style="margin-top:28px;">
+      <div class="tools-group-title">🤖 AI & Content</div>
+      <div class="tools-list">
+        <div class="tool-item"><span class="tool-icon">💬</span> ChatGPT</div>
+        <div class="tool-item"><span class="tool-icon">🧠</span> Claude (Anthropic)</div>
+        <div class="tool-item"><span class="tool-icon">🎨</span> DALL-E</div>
+        <div class="tool-item"><span class="tool-icon">🖌</span> Canva</div>
+        <div class="tool-item"><span class="tool-icon">✍️</span> Jasper</div>
+        <div class="tool-item"><span class="tool-icon">📝</span> Writesonic</div>
+      </div>
+    </div>
+    <div class="tools-group" style="margin-top:28px;">
+      <div class="tools-group-title">⚙️ Automation & CRM</div>
+      <div class="tools-list">
+        <div class="tool-item"><span class="tool-icon">🔶</span> HubSpot</div>
+        <div class="tool-item"><span class="tool-icon">📧</span> Mailchimp</div>
+        <div class="tool-item"><span class="tool-icon">🔗</span> n8n</div>
+        <div class="tool-item"><span class="tool-icon">💬</span> ManyChat</div>
+        <div class="tool-item"><span class="tool-icon">🔑</span> Keap</div>
+      </div>
+    </div>
+    <div class="tools-group" style="margin-top:28px;">
+      <div class="tools-group-title">🖥 Operations & Web</div>
+      <div class="tools-list">
+        <div class="tool-item"><span class="tool-icon">✅</span> Asana</div>
+        <div class="tool-item"><span class="tool-icon">📋</span> Trello</div>
+        <div class="tool-item"><span class="tool-icon">🌐</span> WordPress</div>
+        <div class="tool-item"><span class="tool-icon">🔒</span> GoDaddy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION -->
+<section class="section section-dark" id="admission" style="border-top:1px solid rgba(255,255,255,0.07);">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold)">Admission Details</div>
+    <h2 class="section-title section-title-white">Seats Are Filling Fast</h2>
+    <div class="admission-grid">
+      <div class="admission-card">
+        <div class="admission-icon">📅</div>
+        <h4>Admission Closes</h4>
+        <p>06 April 2026</p>
+        <small>Limited seats per batch</small>
+      </div>
+      <div class="admission-card">
+        <div class="admission-icon">⏱</div>
+        <h4>Program Duration</h4>
+        <p>5 Months</p>
+        <small>10–15 Hours per Module</small>
+      </div>
+      <div class="admission-card">
+        <div class="admission-icon">🖥</div>
+        <h4>Learning Format</h4>
+        <p>Live Online & Offline</p>
+        <small>Interactive Sessions · Kerala & GCC</small>
+      </div>
+    </div>
+    <div class="admission-ctas">
+      <a href="#hero-form" class="btn-primary">Apply Now →</a>
+      <a href="#" class="btn-outline">Download Syllabus</a>
+      <a href="#" class="btn-outline">Get Brochure</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What is 360° Digital Marketing with AI & Automation?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">A complete training program covering all major areas of digital marketing — SEO, social media, Google Ads, Meta Ads, content marketing, and performance marketing — combined with AI tools and automation systems. Learners gain the ability to plan, execute, and optimise campaigns across multiple platforms using a combination of data-driven strategies, AI-powered tools, and automation workflows.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Why choose Tiju's Academy over other institutes?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Tiju's Academy is recognised as one of Kerala's premier digital marketing institutes, with industry-experienced and certified trainers. The personalised training model ensures every student masters both foundational and advanced digital marketing skills, with dedicated placement support through our career cell.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Can I enrol in individual modules instead of the full program?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Each of the 7 sub-courses is available individually at ₹6,999 (+ 18% GST = ₹8,259). These are ideal for beginners, business owners, or working professionals who want to upskill in a specific area quickly without committing to the full program.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>What is the total duration and format?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">The full 360° program spans 5 months with approximately 10–15 hours per module. Sessions are available in both Live Online and Offline formats from our Mavelikara and Thiruvalla branches. All sessions are interactive and recorded for revision.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Is placement support provided after the course?</span>
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Tiju's Academy has a dedicated career cell that actively connects graduates with hiring companies in Kerala, GCC countries, and beyond. Students also build a live project portfolio during the course, which significantly improves their employability.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="background: linear-gradient(135deg, var(--navy) 0%, #0D2A5A 100%); padding: 80px 0; text-align:center; position:relative; overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(245,165,0,0.10) 0%, transparent 70%);pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="tag tag-white" style="margin-bottom:20px;">⚡ Limited Seats Available</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:16px;">Ready to Future-Proof<br><span style="color:var(--gold)">Your Career?</span></h2>
+    <p style="font-size:18px;color:rgba(255,255,255,0.6);max-width:540px;margin:0 auto 40px;">Join 500+ students who are already mastering the AI-driven digital marketing landscape. Admission closes <strong style="color:var(--gold-light)">06 April 2026.</strong></p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#hero-form" class="btn-primary" style="font-size:16px;padding:16px 32px;">Apply Now →</a>
+      <a href="https://wa.me/919539259910" class="btn-outline" style="font-size:16px;padding:15px 30px;">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="https://tijusacademy.com/wp-content/uploads/2024/09/xNew-logo-PNG-1024x594.png.pagespeed.ic.HNMsGtlSct.png" alt="Tiju's Academy">
+        <p>Kerala's most trusted digital marketing institute — training the next generation of AI-ready marketers from Mavelikara and Thiruvalla.</p>
+      </div>
+      <div class="footer-contact">
+        <h4>Get in Touch</h4>
+        <p>
+          📞 <a href="tel:+919539259910">+91 95392 59910</a><br>
+          💬 <a href="https://wa.me/919539259910">WhatsApp Us</a><br>
+          🌐 <a href="https://tijusacademy.com" target="_blank">tijusacademy.com</a><br>
+          📍 Mavelikara & Thiruvalla, Kerala
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Tiju's Academy. All rights reserved.</p>
+      <p>Terms & Privacy Policy</p>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="sticky-bar">
+  <div class="sticky-bar-inner">
+    <div class="sticky-bar-text">360° Digital Marketing with AI — <strong>Offer: ₹32,999</strong> · Admission Closes 06 Apr 2026</div>
+    <div class="sticky-bar-btns">
+      <a href="#hero-form" class="btn-primary" style="font-size:13px;padding:10px 20px;">Apply Now</a>
+      <a href="https://wa.me/919539259910" class="btn-outline" style="font-size:13px;padding:9px 18px;">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/919539259910" class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.832 4.584 2.215 6.346L4.5 28l6.872-1.695A12.037 12.037 0 0016 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.822 0-3.538-.508-5.002-1.39l-.358-.213-3.72.917.957-3.625-.234-.374A9.951 9.951 0 016 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.49-7.398c-.3-.149-1.774-.874-2.05-.974-.275-.1-.475-.149-.675.15-.2.3-.774.974-.949 1.174-.175.2-.35.224-.65.075-.3-.15-1.266-.466-2.41-1.483-.89-.793-1.49-1.772-1.664-2.072-.175-.3-.019-.462.131-.61.135-.135.3-.35.45-.525.149-.175.2-.3.3-.499.1-.2.05-.374-.025-.524-.075-.149-.675-1.625-.925-2.225-.243-.584-.49-.505-.675-.515l-.574-.009a1.1 1.1 0 00-.8.374c-.275.3-1.05 1.025-1.05 2.5s1.075 2.899 1.225 3.099c.149.2 2.115 3.224 5.123 4.522.716.309 1.274.493 1.71.632.718.228 1.372.196 1.889.119.576-.085 1.774-.724 2.025-1.424.25-.7.25-1.299.175-1.424-.074-.125-.274-.2-.574-.35z"/>
+  </svg>
+</a>
+
+<script>
+  // Module tabs
+  function openModule(num, el) {
+    document.querySelectorAll('.mod-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('mod-' + num).classList.add('active');
+  }
+
+  // FAQ accordion
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Sticky bar on scroll
+  const sticky = document.getElementById('sticky-bar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      sticky.style.display = 'block';
+    } else {
+      sticky.style.display = 'none';
+    }
+  });
+
+  // Scroll animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.feature-card, .why-card, .admission-card, .faq-item, .sub-course-row').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
