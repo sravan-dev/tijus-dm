@@ -1757,6 +1757,21 @@
       document.body.style.overflow = '';
     }
   });
+
+  // Download brochure PDF after HubSpot form submission in modal
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormSubmitted') {
+      // Small delay to let the thank-you message show
+      setTimeout(function() {
+        var link = document.createElement('a');
+        link.href = 'DM Brochure.pdf';
+        link.download = 'DM Brochure.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 1000);
+    }
+  });
 </script>
 </body>
 </html>
