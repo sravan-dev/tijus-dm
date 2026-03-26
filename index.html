@@ -1622,11 +1622,11 @@
 <!-- ══════════ STICKY BOTTOM CTA BAR ══════════ -->
 <div class="sticky-cta-bar" id="stickyCta">
   <div class="sticky-cta-inner">
-    <a href="https://wa.me/919539259910" target="_blank" class="cta-chat">
+    <a href="#" onclick="openBrochureModalWith(event,'whatsapp')" class="cta-chat">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25d366"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="#25d366" stroke-width="1.5"/></svg>
       Chat with us
     </a>
-    <a href="tel:+919539259910" class="cta-apply">
+    <a href="#" onclick="openBrochureModalWith(event,'call')" class="cta-apply">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
       Apply Now
     </a>
@@ -1740,8 +1740,18 @@
     tick();
   })();
 
+  var _bmPostAction = null; // tracks what to do after form submit
+
   function openBrochureModal(e) {
     e.preventDefault();
+    _bmPostAction = null;
+    document.getElementById('bmOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openBrochureModalWith(e, action) {
+    e.preventDefault();
+    _bmPostAction = action;
     document.getElementById('bmOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -1758,17 +1768,24 @@
     }
   });
 
-  // Download brochure PDF after HubSpot form submission in modal
+  // Handle actions after HubSpot form submission in modal
   window.addEventListener('message', function(e) {
     if (e.data && e.data.type === 'hsFormCallback' && e.data.eventName === 'onFormSubmitted') {
-      // Small delay to let the thank-you message show
       setTimeout(function() {
-        var link = document.createElement('a');
-        link.href = 'DM Brochure.pdf';
-        link.download = 'DM Brochure.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if (_bmPostAction === 'whatsapp') {
+          window.open('https://wa.me/919539259910', '_blank');
+        } else if (_bmPostAction === 'call') {
+          window.location.href = 'tel:+919539259910';
+        } else {
+          // Default: download brochure
+          var link = document.createElement('a');
+          link.href = 'DM Brochure.pdf';
+          link.download = 'DM Brochure.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+        _bmPostAction = null;
       }, 1000);
     }
   });
